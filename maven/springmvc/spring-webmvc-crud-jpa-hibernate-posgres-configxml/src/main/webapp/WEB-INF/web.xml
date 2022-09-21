@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                             http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+
+    <display-name>spring-webmvc-crud-jpa-hibernate-posgres-configxml</display-name>
+
+    <!-- Spring MVC Configs -->
+    <!-- Step 1: Configurar Spring MVC Dispatcher Servlet -->
+    <servlet>
+        <servlet-name>springDispacherServlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>
+                /WEB-INF/springconfig/mvc-dispatcher-servlet.xml
+            </param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <!-- Step 2: Configurar la asignación de URL para Spring MVC Dispatcher Servlet -->
+    <servlet-mapping>
+        <servlet-name>springDispacherServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <!-- Step 3: Configurar Aplication root context etc-->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            /WEB-INF/springconfig/applicationContext-dao.xml
+        </param-value>
+    </context-param>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+
+</web-app>
+<!--
+-la relacion de estos 2 contextos q el rootContext es el padre del DispatcherServletContext, entonces el rootContext
+se usa para definir nuestros servicio bean(accedo a bd,etc), en cambio el DispatcherServletContext contiene los bean que estan relacionados
+con mvc
+- ContextLoaderListener es el que arranca el RootAplicationContext
+Link:
+    - https://www.java67.com/2019/05/contextloaderlistener-in-spring-mvc-10.html
+    - https://stackoverflow.com/questions/9016122/contextloaderlistener-or-not
+-->

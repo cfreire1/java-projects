@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- dispatcherServletContext o webMvcConfig es lo mismo-->
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:mvc="http://www.springframework.org/schema/mvc"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!-- Step 1: Agregar soporte para escaneo de componentes -->
+    <!--Registra los beans en contexto y escanea las anotaciones dentro de los beans y los activa-->
+    <context:component-scan base-package="domain.controller"/>
+
+    <!-- Step 2: Agregar soporte para soporte de conversión, formateo y validación -->
+    <!-- Esto permite enviar solicitudes a los Controladores.-->
+    <mvc:annotation-driven />
+
+    <!-- Step 3: Definir Spring MVC view resolver -->
+    <!-- Esto ayuda a mapear los nombres de vistas lógicas para ver directamente los archivos en un determinado directorio preconfigurado.   -->
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/views/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <!-- Step 4: Otras propiedades -->
+    <!--    Pagina Index-->
+    <mvc:view-controller path="/" view-name="home"/>
+
+<!--    Indicar resources staticos WEB-->
+    <mvc:resources mapping="/**" location="resources" />
+
+</beans>

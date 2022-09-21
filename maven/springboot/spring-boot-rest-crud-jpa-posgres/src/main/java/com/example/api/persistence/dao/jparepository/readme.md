@@ -1,0 +1,1 @@
+* https://www.geeksforgeeks.org/spring-boot-jparepository-with-example/

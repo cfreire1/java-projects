@@ -1,0 +1,48 @@
+
+  [
+    {
+      "name": "Computador",
+      "type": "Tecnologia",
+      "stock": 3,
+      "price": 30000
+    },
+    {
+      "name": "Mouse",
+      "type": "Tecnologia",
+      "stock": 2,
+      "price": 35000
+    },
+    {
+      "name": "Audifono",
+      "type": "Tecnologia",
+      "stock": 0,
+      "price": 120000
+    },
+    {
+      "name": "Papa",
+      "type": "Verdura",
+      "stock": 100,
+      "price": 399
+    },
+    {
+      "name": "Platano",
+      "type": "Fruta",
+      "stock": 200,
+      "price": 100
+    },
+    {
+      "name": "Manzana",
+      "type": "Fruta",
+      "stock": 100,
+      "price": 500
+    },
+    {
+      "name": "",
+      "type": "Fruta",
+      "stock": 100,
+      "price": 500
+    }
+
+  ]
+
+

@@ -1,0 +1,5 @@
+{"serie":[
+  {"age": 2022, "nameBase": "nombre", "nameFindFile": "nombre - nombre2", "serieOrOva": "S", "numberEpisodes": 13, "numberSeason": 1, "absoluteOrder": false, "numEpiAbsoluteOrderStart": 0},
+  {"age": 2022, "nameBase": "apellido", "nameFindFile": "apellido - apellido2", "serieOrOva": "S", "numberEpisodes": 12,"numberSeason": 1, "absoluteOrder": true, "numEpiAbsoluteOrderStart": 13},
+  {"age": 1990, "nameBase": "comic", "nameFindFile": "abuelodemo", "serieOrOva": "S", "numberEpisodes": 144,"numberSeason": 21, "absoluteOrder": true, "numEpiAbsoluteOrderStart": 892}
+]}

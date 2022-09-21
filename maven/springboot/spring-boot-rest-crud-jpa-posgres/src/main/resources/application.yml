@@ -1,0 +1,10 @@
+server:
+  servlet:
+    context-path: /api-demo # cambio de path
+jwt.secret: keydemo
+
+# configurar varios entornos
+spring:
+  profiles:
+    active: dev # Seleccionar entre (dev o pdn)
+

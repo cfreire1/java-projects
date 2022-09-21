@@ -1,0 +1,202 @@
+{
+	"info": {
+		"_postman_id": "c2518c64-9bb6-40d3-8427-d37c23484284",
+		"name": "spring-boot-rest-basic-jwt",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CategoryController",
+			"item": [
+				{
+					"name": "all",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJKdWFuIiwiaWF0IjoxNjU3NTc3Njg3LCJleHAiOjE2NTc1Nzc3NDd9.hu71YGALNimPPih_rt_MznEvlJqBr_bHQFUjycf_0-E",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/category/get-all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"category",
+								"get-all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJKdWFuIiwiaWF0IjoxNjU3NTc3NzUyLCJleHAiOjE2NTc1Nzc4MTJ9.aFKxLUOzY1-Ql0IS7GibOwTRpyf46J_Uo4Lce1UkGQw",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/category/get-find/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"category",
+								"get-find",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJKdWFuIiwiaWF0IjoxNjU3NTc3ODE2LCJleHAiOjE2NTc1Nzc4NzZ9.MuM7iCAJcEFfuTtlnbfOY1pChmVWT2nOmOFavI9p4FA",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/category/delete/20",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"category",
+								"delete",
+								"20"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "save",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJKdWFuIiwiaWF0IjoxNjU3NTc3ODE2LCJleHAiOjE2NTc1Nzc4NzZ9.MuM7iCAJcEFfuTtlnbfOY1pChmVWT2nOmOFavI9p4FA",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"name\": \"VERDURAS\",\n        \"state\": true\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/category/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"category",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJKdWFuIiwiaWF0IjoxNjU3NTc3ODE2LCJleHAiOjE2NTc1Nzc4NzZ9.MuM7iCAJcEFfuTtlnbfOY1pChmVWT2nOmOFavI9p4FA",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"name\": \"sdaasd\",\n        \"state\": true\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/category/update/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"category",
+								"update",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "JwtAuthenticationController",
+			"item": [
+				{
+					"name": "token",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"juan\",\n    \"password\": \"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/authenticate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

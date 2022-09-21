@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+
+    <!--configurar Spring Data JPA utilizando la configuración XML-->
+    <!--    https://stackoverflow.com/questions/25049778/how-to-configure-spring-data-jpa-using-xml-->
+    <!--    https://www.studytonight.com/spring-framework/spring-mvc-with-jpa#:~:text=JPA%20(Java%20Persistence%20API)%20is,to%20perform%20database%20operations%20efficiently.  -->
+    <!--  =================================================================================================================  -->
+    <!-- activa muchas anotaciones diferentes en beans, ya sea que estén definidas en XML o mediante el escaneo de componentes.-->
+    <context:annotation-config/>
+
+    <!--Registra los beans en contexto y escanea las anotaciones dentro de los beans y los activa-->
+    <context:component-scan base-package="domain.services"/>
+    <context:component-scan base-package="domain.entity"/>
+    <context:component-scan base-package="domain.dao"/>
+
+    <!--  =================================================================================================================  -->
+    <!-- @Bean DataSource dataSource()   -->
+    <!-- Implementación simple de la interfaz estándar de JDBC DataSource,
+     configurando el JDBC DriverManager simple y antiguo a través de propiedades de bean-->
+    <bean id="datasourcePostgresql" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="org.postgresql.Driver" />
+        <property name="url" value="jdbc:postgresql://localhost:5432/test1" />
+        <property name="username" value="postgres" />
+        <property name="password" value="postgres" />
+        <property name="connectionProperties">
+            <props>
+                <prop key="socketTimeout">10</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!--  Crear configuración predeterminada para Hibernate - bean requeridos para entityManagerFactory  -->
+    <bean id="hibernateJpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
+
+    <!-- Configure el bean de fábrica del administrador de entidades. -->
+    <!--  @Bean LocalContainerEntityManagerFactoryBean entityManagerFactory()  -->
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="datasourcePostgresql" />
+        <property name="jpaVendorAdapter" ref="hibernateJpaVendorAdapter" />
+        <!-- NOTA: Despues de Spring v3.1 ya no es nesesario agregar|declarar persistance.xml -->
+        <!-- https://stackoverflow.com/questions/30905908/jpa-without-persistence-xml -->
+<!---->
+        <!--Set JPA properties        -->
+        <property name="jpaProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQL9Dialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <!--Validara el o los Objetos domain.entity con la BD conectada-->
+                <prop key="hibernate.hbm2ddl.auto">validate</prop>
+            </props>
+        </property>
+        <!-- Establecer el paquete base de sus entidades -->
+        <property name="packagesToScan" value="domain.entity" />
+        <!-- Establecer el modo de compartir caché -->
+        <property name="sharedCacheMode" value="ENABLE_SELECTIVE"/>
+        <!-- Establecer el modo de validación -->
+        <property name="validationMode" value="NONE"/>
+    </bean>
+
+
+    <!--  Configurar el bean del administrador de transacciones  -->
+    <!-- @Bean HibernateTransactionManager getTransactionManager()   -->
+    <!--@enabletransactionmanagement xml equivalent    -->
+    <!-- Este administrador de transacciones es apropiado para aplicaciones que usan una sola JPA EntityManagerFactory
+    para el acceso a datos transaccionales. JTA (generalmente a través de JtaTransactionManager) es necesario para
+    acceder a múltiples recursos transaccionales dentro de la misma transacción.-->
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+
+    <!--responsible for registering the necessary Spring components that power annotation-driven transaction management;
+        such as when @Transactional methods are invoked-->
+    <!--  habilitar la configuración del comportamiento transaccional basado en anotaciones  -->
+    <tx:annotation-driven/>
+
+    <!-- Configure Spring Data JPA y configure el paquete base del interfaces de repositorio -->
+    <jpa:repositories base-package="domain.dao.repository"/>
+
+</beans>
