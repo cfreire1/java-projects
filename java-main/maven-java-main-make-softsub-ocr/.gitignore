@@ -1,0 +1,22 @@
+### IntelliJ ###
+# Generated files
+**/.idea
+**.iml
+
+### Eclipse ###
+.metadata
+bin/
+tmp/
+*.tmp
+.project
+.classpath
+.settings
+
+### Java and Build ###
+*.jar
+*.war
+*.nar
+*.ear
+**/target
+
+### inxluir Jars ###
