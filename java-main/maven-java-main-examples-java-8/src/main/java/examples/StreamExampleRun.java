@@ -39,22 +39,29 @@ public class StreamExampleRun {
 
         //=============================================================================================================
         System.out.println("[Sort]");//clasificar, ordenar
-        System.out.println("=>Ordenar lista de registros por precio (menor a mayor)(ASC)");
+        System.out.println("=>Ordenar lista de registros por precio");
         List<Product> list3 = productList.stream()
                 .sorted(Comparator.comparing(Product::getPrice))
                 .collect(Collectors.toList());
 
         list3.forEach(System.out::println);
 
-        System.out.println("=>Ordenar lista de registros por nombre alfabeticamente (DESC)");
+        System.out.println("=>Ordenar lista de registros por precio (invertido)");
+        List<Product> list33 = productList.stream()
+                .sorted(Comparator.comparing(Product::getPrice).reversed())
+                .collect(Collectors.toList());
+
+        list33.forEach(System.out::println);
+
+        System.out.println("=>Ordenar lista de registros por nombre alfabeticamente");
         List<Product> list4 = productList.stream()
                 .sorted(Comparator.comparing(Product::getName))
                 .collect(Collectors.toList());
 
         list4.forEach(System.out::println);
 
-        System.out.println("=>1:Ordenar lista de registros por precio (menor a mayor)(ASC)");
-        System.out.println("=>2:Ordenar lista de registros por nombre alfabeticamente (DESC)");
+        System.out.println("=>1:Ordenar lista de registros por precio (menor a mayor)");
+        System.out.println("=>2:Ordenar lista de registros por nombre alfabeticamente");
         List<Product> list5 = productList.stream()
                 .sorted(Comparator.comparing(Product::getPrice).thenComparing(Product::getName))
                 .collect(Collectors.toList());
