@@ -1,0 +1,25 @@
+{
+  "user": {
+    "name": "pepito Rodriguez",
+    "email": "pepito2@rodriguez.org",
+    "password": "Gunter22",
+    "phones": [
+      {
+        "number": "1234567822",
+        "citycode": "1",
+        "contrycode": "57"
+      },
+      {
+        "number": "1234678222",
+        "citycode": "1",
+        "contrycode": "57"
+      }
+    ]
+  },
+  "id": "7bac4f62-f9c2-4c8d-adef-27d9f9376234",
+  "created": null,
+  "modified": null,
+  "lastLogin": null,
+  "token": "eyJhbGciOiJub25lIn0.eyJpYXQiOjE2NjEwNjMyNTV9.",
+  "active": true
+}

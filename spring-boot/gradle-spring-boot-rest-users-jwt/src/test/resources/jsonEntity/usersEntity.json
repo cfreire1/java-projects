@@ -1,0 +1,26 @@
+{
+  "idUser": "7bac4f62-f9c2-4c8d-adef-27d9f9376234",
+  "name": "pepito Rodriguez",
+  "email": "pepito2@rodriguez.org",
+  "password": "Gunter22",
+  "created": null,
+  "modified": null,
+  "lastLogin": null,
+  "tokenJwt": "eyJhbGciOiJub25lIn0.eyJpYXQiOjE2NjEwNjMyNTV9.",
+  "active": true,
+  "phoneEntities": [
+    {
+      "number": 1234567822,
+      "idUser": null,
+      "cityCode": "1",
+      "countryCode": "57"
+    }
+  ,{
+      "number": 1234678222,
+      "idUser": null,
+      "cityCode": "1",
+      "countryCode": "57"
+    }
+  ]
+}
+
