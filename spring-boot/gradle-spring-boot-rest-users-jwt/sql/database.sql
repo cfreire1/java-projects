@@ -38,5 +38,5 @@ VALUES ('e7fbab63-7730-4ec9-be73-a62e33ea73c3',
         PARSEDATETIME('2020-08-07-00.00.00','yyyy-MM-dd-HH.mm.ss'),
         PARSEDATETIME('2020-08-07-00.00.00','yyyy-MM-dd-HH.mm.ss'),
         PARSEDATETIME('2020-08-07-00.00.00','yyyy-MM-dd-HH.mm.ss'),
-        'eyJhbGciOiJub25lIn0.eyJpYXQiOjE2NjEwMzgxMDJ9.',
+        'Bearer eyJhbGciOiJub25lIn0.eyJpYXQiOjE2NjEwMzgxMDJ9.',
         true);

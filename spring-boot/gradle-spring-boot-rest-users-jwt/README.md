@@ -7,6 +7,7 @@ Aplicación que expone una API RESTful de creación de usuarios
 * Proceso de build via Gradle.
 * Framework Spring.
 * Servidor Tomcat (embedded|Integrada)
+* JSON Web Tokens (JWT)
 
 # Instrucciones
 * Ejecutar Run `JavaSpringBootRestUsersApplication.java` 
