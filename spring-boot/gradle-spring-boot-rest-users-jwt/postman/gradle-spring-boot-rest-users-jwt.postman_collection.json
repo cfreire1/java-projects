@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "72d27ba4-5cf5-435b-bede-6b1b83f33f2c",
+		"_postman_id": "3383da5b-bddd-49d4-8b12-96865f035cfa",
 		"name": "gradle-spring-boot-rest-users-jwt",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -15,7 +15,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiLCJST0xFX0FETUlOIl0sImlhdCI6MTY2OTc5NTk2MSwiZXhwIjoxNjY5Nzk2MDIxfQ.9RrAxs8chHeSXugceYP9vRMBUSBxlzhQ6hdlomDWrIc",
+								"value": "",
 								"type": "default"
 							}
 						],
