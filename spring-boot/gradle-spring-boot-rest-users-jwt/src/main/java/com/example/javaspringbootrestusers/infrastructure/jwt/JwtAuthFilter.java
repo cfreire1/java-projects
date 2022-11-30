@@ -47,6 +47,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                 String token = extractJWTToken(request);
                 if (validateToken(token)) {
 
+                    //Para autenticarnos dentro del flujo de Spring
                     List<String> authorities = (List) this.getClaims(token).get(claimName);
                     UsernamePasswordAuthenticationToken authToken
                             = new UsernamePasswordAuthenticationToken(
@@ -112,9 +113,6 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 
     /**
      * Validar Token
-     * - Validar que el usuario que viene en la peticion sea el mismo que en el token
-     * - Y que no halla expirado el token
-     *
      * @param String token
      * @return
      */
