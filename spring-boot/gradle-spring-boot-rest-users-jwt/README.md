@@ -3,7 +3,7 @@
 Aplicación que expone una API RESTful de creación de usuarios 
 
 * java 8
-* Banco de datos en memoriaH2.
+* Banco de datos en memoria H2.
 * Proceso de build via Gradle.
 * Framework Spring.
 * Servidor Tomcat (embedded|Integrada)
