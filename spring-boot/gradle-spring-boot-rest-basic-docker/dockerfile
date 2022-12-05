@@ -1,0 +1,19 @@
+# Etapa (1)
+# Build de gradle para construir piezas necesarias
+# Alias 'builder' para reutilizar contenido en otros build
+FROM gradle:jdk8 as builder
+
+COPY --chown=gradle:gradle . /home/gradle/src
+WORKDIR /home/gradle/src
+RUN gradle build
+
+# Etapa (2)
+# Build de JDK para ejecutar el jar
+FROM openjdk:8u212-jre-alpine3.9
+
+# Obtenemos el contenido del build anterior a partir del alias 'builder'
+COPY --from=builder /home/gradle/src/build/libs/gradle-spring-boot-rest-basic-docker-0.0.1-SNAPSHOT.jar /app/
+WORKDIR /app
+
+CMD ["java","-jar","gradle-spring-boot-rest-basic-docker-0.0.1-SNAPSHOT.jar"]
+EXPOSE 8080
