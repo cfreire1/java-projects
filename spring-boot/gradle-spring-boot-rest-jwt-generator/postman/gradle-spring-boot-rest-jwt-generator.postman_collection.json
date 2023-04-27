@@ -1,0 +1,41 @@
+{
+	"info": {
+		"_postman_id": "7f30aeef-0dd6-456a-9f72-8811c864dfdd",
+		"name": "gradle-spring-boot-rest-jwt-generator",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "token-generate",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"header\": {\n        \"scope\": \"hola mundo\",\n        \"sha\": 256,\n        \"al\": 12345\n    },\n    \"payload\": {\n        \"scope\": \"cl:1234:write\",\n        \"iat\": 1682555840,\n        \"exp\": 1682555900\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/token/generate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"token",
+						"generate"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
