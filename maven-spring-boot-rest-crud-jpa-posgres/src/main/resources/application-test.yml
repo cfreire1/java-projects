@@ -1,0 +1,20 @@
+server:
+  port: 8080 #puerto de app
+
+#Database
+
+# Configuracion para impedir que se caiga la app
+spring:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        hbm2ddl:
+          auto: none
+
+  # Conexion a base datos
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://<ip>:<port>/postgres
+    username: admin
+    password: admin

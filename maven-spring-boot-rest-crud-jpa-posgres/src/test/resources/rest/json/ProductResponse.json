@@ -1,0 +1,9 @@
+{
+  "id": 1,
+  "idCategory": 1,
+  "name": "NOTEBOOK",
+  "price": 1300000.00,
+  "stock": 50,
+  "createAt": null ,
+  "state": true
+}
