@@ -1,4 +1,0 @@
-FROM openjdk:8u212-jre-alpine3.9
-
-ADD ./target/maven-spring-boot-rest-basic-docker-0.0.1-SNAPSHOT.jar /maven-spring-boot-rest-basic-docker-0.0.1-SNAPSHOT.jar
-CMD ["java","-jar","maven-spring-boot-rest-basic-docker-0.0.1-SNAPSHOT.jar"]

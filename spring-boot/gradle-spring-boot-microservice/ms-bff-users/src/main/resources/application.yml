@@ -1,7 +1,0 @@
-# p2
-auth:
-  auth-header: Authorization
-  prefix: Bearer
-  claim: authorities
-  secret:
-    key: keydemo
